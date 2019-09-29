@@ -29,7 +29,7 @@ if [ $? -ne 0 ]; then { cp ${unifi_install_dir}/keystore.old ${unifi_install_dir
 chmod 600 ${unifi_install_dir}/keystore && chown unifi:unifi ${unifi_install_dir}/keystore 2>> ${log_file}
 log "Giving UniFi additional permissions to bind to port below 1024"
 setcap 'cap_net_bind_service=+ep' /usr/lib/unifi/bin/unifi.init 2>> ${log_file}
-setcap 'cap_net_bind_service=+ep' /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java ${log_file}
+setcap 'cap_net_bind_service=+ep' /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java 2>> ${log_file}
 log "Starting UniFi service"
 systemctl start unifi 2>> ${log_file}
 log "Finished ${script_name}"
